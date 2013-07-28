@@ -1,0 +1,20 @@
+Config { font = "xft:Linux Libertine-10"
+        , bgColor = "#222"
+        , fgColor = "#aaa"
+        , position = TopW L 90
+        , commands = [ Run Cpu ["-L", "3", "-H", "50", "--low", "#7f7", "--normal", "#ff7", "--high", "#f77"] 10
+                , Run Memory ["-t", "RAM: <usedratio>%", "--low", "#7f7", "--normal", "#ff7", "--high", "#f77"] 10
+                , Run Swap ["--low", "#7f7", "--normal", "#ff7", "--high", "#f77"] 10
+                , Run BatteryP ["BAT0"]
+                        [ "-t", "Battery: <left>% / <timeleft> (<acstatus>)"
+                        , "--", "-c", "energy_full"
+                        , "-o", "<fc=#f77>No AC</fc>"
+                        , "-O", "<fc=#7f7>Charging</fc>"
+                        ] 10
+                , Run Date "<fc=#77f>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10
+                , Run StdinReader
+                ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%StdinReader% }{ %cpu%     %memory%     %swap%     %battery%     %date%"
+        }
