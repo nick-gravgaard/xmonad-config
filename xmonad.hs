@@ -74,8 +74,6 @@ myConfig = defaultConfig
         [ ((mod4Mask,               xK_f), sendMessage ToggleLayout)
         , ((mod4Mask .|. shiftMask, xK_h), sendMessage MirrorShrink)
         , ((mod4Mask .|. shiftMask, xK_l), sendMessage MirrorExpand)
-        , ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
-        --, ((mod4Mask .|. shiftMask, xK_z), spawn "gnome-screensaver-command -l")
         , ((mod4Mask,               xK_Right), sendMessage $ Go R)
         , ((mod4Mask,               xK_Left ), sendMessage $ Go L)
         , ((mod4Mask,               xK_Up   ), sendMessage $ Go U)
@@ -84,5 +82,7 @@ myConfig = defaultConfig
         , ((mod4Mask .|. shiftMask, xK_Left ), sendMessage $ Swap L)
         , ((mod4Mask .|. shiftMask, xK_Up   ), sendMessage $ Swap U)
         , ((mod4Mask .|. shiftMask, xK_Down ), sendMessage $ Swap D)
+        , ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+        --, ((mod4Mask .|. shiftMask, xK_z), spawn "gnome-screensaver-command -l")
         ]
 
