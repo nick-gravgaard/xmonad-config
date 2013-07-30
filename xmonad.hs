@@ -46,7 +46,7 @@ tiledLayout = avoidStruts $
         toggleLayouts Full $
         tall ||| renamed [Replace "ResizableWide"] (Mirror tall)
     where
-        tall = windowNavigation (ResizableTall 2 (1/20) (1/2) [])
+        tall = windowNavigation (ResizableTall 1 (1/16) (1/2) [])
 
 fullscreenLayout = avoidStruts $
         smartBorders $
