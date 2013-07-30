@@ -51,27 +51,33 @@ myManageHook = composeAll
 
 tiledLayout = avoidStruts $
         smartBorders $
-	toggleLayouts Full $
+        toggleLayouts Full $
         tall ||| renamed [Replace "Wide"] (Mirror tall)
     where
         tall = windowNavigation (Tall 1 (3/100) (1/2))
 
 fullscreenLayout = avoidStruts $
         smartBorders $
-	Full
+        Full
 
 myLayoutHook = onWorkspace "2:vbox" fullscreenLayout $ tiledLayout
 
+-- startup applications - these are run each time XMonad is (re)started.
+myStartupHook = do
+    spawn "xrdb -merge ${HOME}/.Xresources"
+    spawn "xsetroot -cursor_name left_ptr"
+    spawn "xsetroot -solid #222222"
+
 -- main configuration
 myConfig = defaultConfig
-        --{ manageHook = manageDocks <+> manageHook defaultConfig
-        { manageHook = myManageHook
-        , layoutHook = myLayoutHook
-        , modMask = mod4Mask -- Rebind Mod to the Windows key
-        , borderWidth = 6
-        , normalBorderColor = normalBorderCol
+        { manageHook         = myManageHook
+        , layoutHook         = myLayoutHook
+        , modMask            = mod4Mask -- Rebind Mod to the Windows key
+        , borderWidth        = 6
+        , normalBorderColor  = normalBorderCol
         , focusedBorderColor = focusedBorderCol
-        , workspaces = ["1:main", "2:vbox", "3", "4", "5", "6", "7", "8", "9"]
+        , workspaces         = ["1:main", "2:vbox", "3", "4", "5", "6", "7", "8", "9"]
+        , startupHook        = myStartupHook
         } `additionalKeys`
         [ ((mod4Mask,               xK_f), sendMessage ToggleLayout)
         , ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
