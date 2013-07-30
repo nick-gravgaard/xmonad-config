@@ -5,6 +5,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.WindowNavigation
 -- import XMonad.Actions.Navigation2D -- switch to this once new version of XMonad's available
@@ -43,9 +44,9 @@ myManageHook = composeAll
 tiledLayout = avoidStruts $
         smartBorders $
         toggleLayouts Full $
-        tall ||| renamed [Replace "Wide"] (Mirror tall)
+        tall ||| renamed [Replace "ResizableWide"] (Mirror tall)
     where
-        tall = windowNavigation (Tall 1 (3/100) (1/2))
+        tall = windowNavigation (ResizableTall 2 (1/20) (1/2) [])
 
 fullscreenLayout = avoidStruts $
         smartBorders $
