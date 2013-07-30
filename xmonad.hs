@@ -3,25 +3,16 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-
-import XMonad.Util.EZConfig(additionalKeys)
-
--- so we can toggle fullscreen
 import XMonad.Layout.MultiToggle
-
 import XMonad.Layout.NoBorders
-
 import XMonad.Layout.ToggleLayouts
-
 import XMonad.Layout.WindowNavigation
 -- import XMonad.Actions.Navigation2D -- switch to this once new version of XMonad's available
-
--- so "Mirror Tall" gets displayed as "Wide"
-import XMonad.Layout.Renamed
-
 import XMonad.Layout.PerWorkspace
-
+import XMonad.Layout.Renamed
 import qualified XMonad.StackSet as W
+import XMonad.Util.EZConfig(additionalKeys)
+
 import Control.Monad (liftM2)
 
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
