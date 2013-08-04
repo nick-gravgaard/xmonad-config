@@ -60,7 +60,7 @@ myStartupHook = do
     spawn "gnome-sound-applet"
     spawn "hsetroot -solid #000000"
     spawn "xscreensaver -no-splash"
-    spawn "compton -b -f -i 0.625 --detect-transient --focus-exclude 'class_g = \"XScreenSaver\"'"
+    spawn "compton -b -f -i 0.625 --detect-transient --focus-exclude 'g:a:XScreenSaver'"
     spawn "syndaemon -d -t"
 
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9:maxed"]
