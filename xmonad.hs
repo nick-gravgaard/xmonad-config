@@ -34,7 +34,7 @@ myPP = defaultPP
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myManageHook = composeAll
-        [ className =? "VirtualBox" --> viewShift "2:vbox"
+        [ className =? "VirtualBox" --> viewShift "9:maxed"
         , manageDocks
         ] <+> manageHook defaultConfig
     where viewShift = doF . liftM2 (.) W.greedyView W.shift
@@ -49,7 +49,7 @@ fullscreenLayout = avoidStruts $
         smartBorders $
         Full
 
-myLayoutHook = onWorkspace "2:vbox" fullscreenLayout $ tiledLayout
+myLayoutHook = onWorkspace "9:maxed" fullscreenLayout $ tiledLayout
 
 -- startup applications - these are run each time XMonad is (re)started.
 myStartupHook = do
@@ -62,6 +62,8 @@ myStartupHook = do
     spawn "compton -b -f -i 0.625 --detect-transient --focus-exclude 'class_g = \"XScreenSaver\"'"
     spawn "syndaemon -d -t"
 
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9:maxed"]
+
 -- main configuration
 myConfig = defaultConfig
         { manageHook         = myManageHook
@@ -70,7 +72,7 @@ myConfig = defaultConfig
         , borderWidth        = 3
         , normalBorderColor  = normalBorderCol
         , focusedBorderColor = focusedBorderCol
-        , workspaces         = ["1:main", "2:vbox", "3", "4", "5", "6", "7", "8", "9"]
+        , workspaces         = myWorkspaces
         , startupHook        = myStartupHook
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_h), sendMessage MirrorShrink)
