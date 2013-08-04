@@ -10,7 +10,7 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Renamed
 import qualified XMonad.StackSet as W
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig
 
 import Control.Monad (liftM2)
 
@@ -65,6 +65,15 @@ myStartupHook = do
 
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9:maxed"]
 
+keysToMoveWindowAndSwitchWorkspaces =
+        [ ("M-"++m++show k, f i)
+        | (i, k) <- zip myWorkspaces ([1 .. 9]++[0])
+        , (f, m) <-
+            [ (windows . W.greedyView, ""),
+              (\i -> windows (W.shift i) >> windows (W.greedyView i), "S-")
+            ]
+        ]
+
 -- main configuration
 myConfig = defaultConfig
         { manageHook         = myManageHook
@@ -89,4 +98,6 @@ myConfig = defaultConfig
         , ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         --, ((mod4Mask .|. shiftMask, xK_z), spawn "gnome-screensaver-command -l")
         ]
+        `additionalKeysP`
+        keysToMoveWindowAndSwitchWorkspaces
 
