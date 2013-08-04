@@ -77,7 +77,7 @@ keysToMoveWindowAndSwitchWorkspaces =
 
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
-        where fadeAmount = 0.8
+        where fadeAmount = 0.625
 
 -- main configuration
 myConfig = defaultConfig
