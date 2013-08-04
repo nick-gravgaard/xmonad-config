@@ -3,10 +3,8 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.MultiToggle
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.WindowNavigation
 -- import XMonad.Actions.Navigation2D -- switch to this once new version of XMonad's available
 import XMonad.Layout.PerWorkspace
@@ -43,7 +41,6 @@ myManageHook = composeAll
 
 tiledLayout = avoidStruts $
         smartBorders $
-        toggleLayouts Full $
         tall ||| renamed [Replace "ResizableWide"] (Mirror tall)
     where
         tall = windowNavigation (ResizableTall 1 (1/16) (1/2) [])
@@ -76,8 +73,7 @@ myConfig = defaultConfig
         , workspaces         = ["1:main", "2:vbox", "3", "4", "5", "6", "7", "8", "9"]
         , startupHook        = myStartupHook
         } `additionalKeys`
-        [ ((mod4Mask,               xK_f), sendMessage ToggleLayout)
-        , ((mod4Mask .|. shiftMask, xK_h), sendMessage MirrorShrink)
+        [ ((mod4Mask .|. shiftMask, xK_h), sendMessage MirrorShrink)
         , ((mod4Mask .|. shiftMask, xK_l), sendMessage MirrorExpand)
         , ((mod4Mask,               xK_Right), sendMessage $ Go R)
         , ((mod4Mask,               xK_Left ), sendMessage $ Go L)
