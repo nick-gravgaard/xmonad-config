@@ -41,9 +41,10 @@ myManageHook = composeAll
 
 tiledLayout = avoidStruts $
         smartBorders $
-        tall ||| renamed [Replace "ResizableWide"] (Mirror tall)
+        windowNavigation $
+        renamed [Replace "RTall"] (rTall) ||| renamed [Replace "RWide"] (Mirror rTall)
     where
-        tall = windowNavigation (ResizableTall 1 (1/16) (1/2) [])
+        rTall = ResizableTall 1 (1/16) (1/2) []
 
 fullscreenLayout = avoidStruts $
         smartBorders $
