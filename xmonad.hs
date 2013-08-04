@@ -22,7 +22,7 @@ normalBorderCol, focusedBorderCol, currentCol, layoutCol :: String
 currentCol       = "#09f"
 layoutCol        = "#f90"
 normalBorderCol  = "#000"
-focusedBorderCol = "#0f5" -- and current window's title in status bar
+focusedBorderCol = "#fff" -- and current window's title in status bar
 
 -- what's displayed in the status bar
 myPP :: PP
@@ -65,7 +65,7 @@ myConfig = defaultConfig
         { manageHook         = myManageHook
         , layoutHook         = myLayoutHook
         , modMask            = mod4Mask -- Rebind Mod to the Windows key
-        , borderWidth        = 6
+        , borderWidth        = 3
         , normalBorderColor  = normalBorderCol
         , focusedBorderColor = focusedBorderCol
         , workspaces         = ["1:main", "2:vbox", "3", "4", "5", "6", "7", "8", "9"]
