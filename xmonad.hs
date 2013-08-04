@@ -54,14 +54,14 @@ myLayoutHook = onWorkspace "9:maxed" fullscreenLayout $ tiledLayout
 
 -- startup applications - these are run each time XMonad is (re)started.
 myStartupHook = do
-    spawn "xrdb -merge ${HOME}/.Xresources"
-    spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 10 --heighttype pixel --height 21 --transparent true --alpha 0 --tint 0x222222"
-    spawn "nm-applet --sm-disable"
-    spawn "gnome-sound-applet"
-    spawn "hsetroot -solid #000000"
-    spawn "xscreensaver -no-splash"
-    spawn "compton -b -f -i 0.625 --detect-transient --focus-exclude 'g:a:XScreenSaver'"
-    spawn "syndaemon -d -t"
+        spawn "xrdb -merge ${HOME}/.Xresources"
+        spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 10 --heighttype pixel --height 21 --transparent true --alpha 0 --tint 0x222222"
+        spawn "nm-applet --sm-disable"
+        spawn "gnome-sound-applet"
+        spawn "hsetroot -solid #000000"
+        spawn "xscreensaver -no-splash"
+        spawn "compton -b -f -i 0.625 --detect-transient --focus-exclude 'g:a:XScreenSaver'"
+        spawn "syndaemon -d -t"
 
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9:maxed"]
 
@@ -69,9 +69,9 @@ keysToMoveWindowAndSwitchWorkspaces =
         [ ("M-"++m++show k, f i)
         | (i, k) <- zip myWorkspaces ([1 .. 9]++[0])
         , (f, m) <-
-            [ (windows . W.greedyView, ""),
-              (\i -> windows (W.shift i) >> windows (W.greedyView i), "S-")
-            ]
+                [ (windows . W.greedyView, ""),
+                  (\i -> windows (W.shift i) >> windows (W.greedyView i), "S-")
+                ]
         ]
 
 -- main configuration
