@@ -57,7 +57,13 @@ myLayoutHook = onWorkspace "2:vbox" fullscreenLayout $ tiledLayout
 -- startup applications - these are run each time XMonad is (re)started.
 myStartupHook = do
     spawn "xrdb -merge ${HOME}/.Xresources"
+    spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 10 --heighttype pixel --height 21 --transparent true --alpha 0 --tint 0x222222"
+    spawn "nm-applet --sm-disable"
+    spawn "gnome-sound-applet"
     spawn "hsetroot -solid #000000"
+    spawn "xscreensaver -no-splash"
+    spawn "compton -b -f -i 0.625 --detect-transient --focus-exclude 'class_g = \"XScreenSaver\"'"
+    spawn "syndaemon -d -t"
 
 -- main configuration
 myConfig = defaultConfig
