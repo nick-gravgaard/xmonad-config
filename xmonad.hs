@@ -57,7 +57,6 @@ myLayoutHook = onWorkspace "2:vbox" fullscreenLayout $ tiledLayout
 -- startup applications - these are run each time XMonad is (re)started.
 myStartupHook = do
     spawn "xrdb -merge ${HOME}/.Xresources"
-    spawn "xsetroot -cursor_name left_ptr"
     spawn "xsetroot -solid #222222"
 
 -- main configuration
