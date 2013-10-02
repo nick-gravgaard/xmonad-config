@@ -18,10 +18,10 @@ import Control.Monad (liftM2)
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh myConfig)
 
 normalBorderCol, focusedBorderCol, currentCol, layoutCol :: String
-currentCol       = "#f77"
-layoutCol        = "#77f"
+currentCol       = "#fff"
+layoutCol        = "#aaa"
 normalBorderCol  = "#000"
-focusedBorderCol = "#fff" -- and current window's title in status bar
+focusedBorderCol = "#4af" -- and current window's title in status bar
 
 -- what's displayed in the status bar
 myPP :: PP
@@ -79,7 +79,7 @@ myConfig = defaultConfig
         { manageHook         = myManageHook
         , layoutHook         = myLayoutHook
         , modMask            = mod4Mask -- Rebind Mod to the Windows key
-        , borderWidth        = 3
+        , borderWidth        = 8
         , normalBorderColor  = normalBorderCol
         , focusedBorderColor = focusedBorderCol
         , workspaces         = myWorkspaces
