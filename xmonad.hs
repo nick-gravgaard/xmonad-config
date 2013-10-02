@@ -3,7 +3,6 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
@@ -62,7 +61,6 @@ myStartupHook = do
         spawn "gnome-sound-applet"
         spawn "hsetroot -solid #000000"
         spawn "xscreensaver -no-splash"
-        spawn "compton -b"
         spawn "syndaemon -d -t"
 
 myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9:maxed"]
@@ -76,10 +74,6 @@ keysToMoveWindowAndSwitchWorkspaces =
                 ]
         ]
 
-myLogHook :: X ()
-myLogHook = fadeInactiveLogHook fadeAmount
-        where fadeAmount = 0.625
-
 -- main configuration
 myConfig = defaultConfig
         { manageHook         = myManageHook
@@ -90,7 +84,6 @@ myConfig = defaultConfig
         , focusedBorderColor = focusedBorderCol
         , workspaces         = myWorkspaces
         , startupHook        = myStartupHook
-        , logHook = myLogHook
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_h), sendMessage MirrorShrink)
         , ((mod4Mask .|. shiftMask, xK_l), sendMessage MirrorExpand)
