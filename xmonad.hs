@@ -19,8 +19,8 @@ import Control.Monad (liftM2)
 main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh myConfig)
 
 normalBorderCol, focusedBorderCol, currentCol, layoutCol :: String
-currentCol       = "#09f"
-layoutCol        = "#f90"
+currentCol       = "#f77"
+layoutCol        = "#77f"
 normalBorderCol  = "#000"
 focusedBorderCol = "#fff" -- and current window's title in status bar
 
