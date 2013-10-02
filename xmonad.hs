@@ -2,6 +2,7 @@
 
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
@@ -15,7 +16,7 @@ import XMonad.Util.EZConfig
 
 import Control.Monad (liftM2)
 
-main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey myConfig
+main = xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (ewmh myConfig)
 
 normalBorderCol, focusedBorderCol, currentCol, layoutCol :: String
 currentCol       = "#09f"
