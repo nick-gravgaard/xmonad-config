@@ -11,7 +11,7 @@ Config { font = "xft:Linux Libertine-10"
                         , "-o", "<fc=#f77>No AC</fc>"
                         , "-O", "<fc=#7f7>Charging</fc>"
                         ] 10
-                , Run Date "<fc=#77f>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10
+                , Run Date "<fc=#ddd>%a %Y-%m-%d %H:%M</fc><fc=#555>:%S</fc>" "date" 10
                 , Run StdinReader
                 ]
         , sepChar = "%"
